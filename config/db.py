@@ -3,7 +3,9 @@
 
 from sqlalchemy import create_engine, MetaData
 
-engine = create_engine("mysql+pymysql://usuario:contraseña@localhost:3306/")
+DATABASE_URL = "postgres://dvote_user:aD7nniFvRBRiCc4rkSTBWcypCQh18yka@dpg-cp0nkta1hbls73edkjc0-a.ohio-postgres.render.com/dvote"
+
+engine = create_engine(DATABASE_URL)
 
 meta = MetaData()
 

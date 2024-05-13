@@ -8,13 +8,10 @@ from fastapi import APIRouter, Response, status
 from config.db import conn
 from models.user import users
 from schemas.user import User
-from cryptography.fernet import Fernet
 from starlette.status import HTTP_204_NO_CONTENT
 
-key = Fernet.generate_key()
-funcion_cifrado = Fernet(key)
-
 user = APIRouter()
+
 @user.get('/users', response_model=list[User], tags=['users'])
 def get_users():
     return conn.execute(users.select()).fetchall()
